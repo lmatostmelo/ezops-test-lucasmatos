@@ -85,26 +85,27 @@ app.post('/messages', async (req, res) => {
     else
       io.emit('message', new Message({"name":"ChatBot", "message": "Desculpa, não entendi"}))
 
-    res.sendStatus(200);
-  }
-  catch (error){
-    res.sendStatus(500);
-    return console.log('error',error);
-  }
-  finally{
-    console.log('Message Posted')
-  }
-
-})
-
-io.on('connection', () =>{
-  console.log('a user is connected')
-})
-
-mongoose.connect(dbUrl ,{useMongoClient : true} ,(err) => {
-  console.log('mongodb connected',err);
-})
-
-const server = http.listen(3000, () => {
-  console.log('server is running on port', server.address().port);
-});
+      res.sendStatus(200);
+    }
+    catch (error){
+      res.sendStatus(500);
+      return console.log('error',error);
+    }
+    finally{
+      console.log('Message Posted')
+    }
+  
+  })
+  
+  io.on('connection', () =>{
+    console.log('a user is connected')
+  })
+  
+  mongoose.connect(dbUrl ,{useMongoClient : true} ,(err) => {
+    console.log('mongodb connected',err);
+  })
+  
+  const server = http.listen(3000, () => {
+    console.log('server is running on port', server.address().port);
+  });
+  
