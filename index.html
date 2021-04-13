@@ -35,7 +35,7 @@
     })
 
    $(document).ready(function() {
-       $.get('http://localhost:3000/welcome', (data) => {
+       $.get('http://3.87.232.155:3000/welcome', (data) => {
            data.forEach(addMessages);
        })
    });
@@ -47,13 +47,13 @@
     }
 
     function getMessages(){
-      $.get('http://localhost:3000/messages', (data) => {
+      $.get('http://3.87.232.155:3000/messages', (data) => {
         data.forEach(addMessages);
       })
     }
 
     function sendMessage(message){
-      $.post('http://localhost:3000/messages', message)
+      $.post('http//:3.87.232.155:3000/messages', message)
     }
 </script>
 </body>
